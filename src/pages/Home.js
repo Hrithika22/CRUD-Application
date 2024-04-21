@@ -11,7 +11,7 @@ export default function Home() {
 
   const loadUsers=async()=>{
     const result = await axios.get("http://localhost:8080/user")
-    console.log(result.data);
+    setUsers(result.data);
   }
   return (
     <div className="container">
@@ -29,7 +29,7 @@ export default function Home() {
             {
               users.map(user, index)=>
                <tr>
-              <th scope="row">1</th>
+              <th scope="row" key = {index}>{index+1}</th>
               <td>Hrithika</td>
               <td>Gowlikar</td>
               <td>@hrithika22</td>
