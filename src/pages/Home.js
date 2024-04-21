@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home() {
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(()=>{
+    loadUsers();
+  }, []);
+
+  const loadUsers=async()=>{
+    const result = await axios.get("http://localhost:8080/user")
+    console.log(result.data);
+  }
   return (
     <div className="container">
       <div className="py-4">
-        <table className="table">
+        <table className="table border">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -14,22 +26,27 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            {
+              users.map(user, index)=>
+               <tr>
               <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td>Hrithika</td>
+              <td>Gowlikar</td>
+              <td>@hrithika22</td>
             </tr>
+            }
+            
             <tr>
               <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td>Vaishnavi</td>
+              <td>Gowli</td>
+              <td>@vaishnavi</td>
             </tr>
             <tr>
               <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
+              <td colspan="2">Vignesh</td>
+              <td>Gowli</td>
+              <td>@vigneshh</td>
             </tr>
           </tbody>
         </table>
