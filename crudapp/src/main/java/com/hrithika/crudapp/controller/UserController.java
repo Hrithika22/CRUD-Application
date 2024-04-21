@@ -1,5 +1,5 @@
 package com.hrithika.crudapp.controller;
-import com.hrithika.crudapp.exception.UserNotFoundException;
+//import com.hrithika.crudapp.exception.UserNotFoundException;
 import com.hrithika.crudapp.model.User;
 import com.hrithika.crudapp.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
